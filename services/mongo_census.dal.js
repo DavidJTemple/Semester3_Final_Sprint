@@ -1,9 +1,10 @@
 const dal = require("./mongodb_db");
+const sort = { length:1 };
 
 async function getAllCensus() {
   try {
     await dal.connect();
-    const cursor = dal.db("sprint").collection("census").find();
+    const cursor = dal.db("sprint").collection("census").find().sort(sort);
     const results = await cursor.toArray();
     return results;
   } catch (error) {
