@@ -10,6 +10,8 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const uuid = require("uuid");
 const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
+// const logins = require('./services/mongodb_logins') // use MONGODB dal
+// Barry is losing his mind
 
 
 const app = express();
