@@ -10,13 +10,13 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const uuid = require("uuid");
 const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
-// const logins = require('./services/mongodb_logins') // use MONGODB dal
+
 
 
 
 const app = express();
 const censusRouter = require("./routes/census");
-
+const postgresRouter = require("./routes/fam_search")
 const censusMongoRouter = require("./routes/mongo_census");
 
 passport.use(
@@ -68,7 +68,9 @@ app.get("/", checkAuthenticated, (req, res) => {
 });
 
 app.use("/census", censusRouter);
-
+app.use("/fam_search", postgresRouter);
+app.use("/id_search", postgresRouter);
+app.use("/prov_search", postgresRouter);
 app.use("/mongo_census", censusMongoRouter);
 
 app.get("/login", checkNotAuthenticated, (req, res) => {

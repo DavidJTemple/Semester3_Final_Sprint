@@ -1,23 +1,49 @@
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  </style>
+
+
 <html lang="en">
   <%- include('./partials/header.ejs') %>
   <body>
     <%- include('./partials/nav.ejs') %>
     <div class="lost content">
-      <h2>All Census</h2>
+      <h2>Postgres Database</h2>
       <div class="dropdown">
-          <button class="dropbtn">Find Name</button>
-          <div class="dropdown-content">
-            <% if (allCensus.length > 0) { %> <% allCensus.forEach(census => { %>
-                <p class="census">
-                  <a href="<%= census.family_name%>"><b><%= census.family_name%>,</b>
-                    <%=census.parent1_first_name%> <br/>
-                    <span>Household ID:</span> <%=census.household_id%></a>
-                </p>
-                <% }) %> <% } %>
-          </div>
+          <button class="dropbtn">Search Database</button>
+          <div class="dropdown-content">             
+             <a id="line" href="/id_search">Household ID</a>
+             <a id="line" href="/fam_search">Family Name</a>
+             <a id="line" href="/prov_search">Province</a>     
+          </div>         
+        </div>
+    </div>
+    <div> <h1>Please Logout if Finished</h1><br>
+      <form action="/logout?_method=DELETE" method="POST"></br>
+        <button id="gin" type="submit">Logout</button>
+      </form>
     </div>
   </body>
-  <%- include('./partials/footer.ejs') %>
+ <html lang="en">
+  <%- include('./partials/header.ejs') %>
+  <body>
 </html>
 
 
