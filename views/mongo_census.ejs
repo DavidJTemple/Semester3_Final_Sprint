@@ -16,6 +16,12 @@
                   <% }) %> <% } %>
             </div>
         </div>
+        <br>
+        <div> <h1>Please Logout if Finished</h1><br>
+          <form action="/logout?_method=DELETE" method="POST"></br>
+            <button id="gin" type="submit">Logout</button>
+          </form>
+        </div>
     </body>
     <%- include('./partials/footer.ejs') %>
 </html>
