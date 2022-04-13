@@ -13,6 +13,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/",  (req, res) =>{
+  res.render("fam_search.ejs")
+})
+
+router.get("/",  (req, res) =>{
+  res.render("id_search.ejs")
+})
+
+router.get("/",  (req, res) =>{
+  res.render("prov_search.ejs")
+})
+
 router.get("/:id", async (req, res) => {
   let allCensus = await censusDal.getCensusByFamilyName(req.params.id);
   if (allCensus.length === 0) res.render("norecord");
