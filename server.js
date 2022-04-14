@@ -19,6 +19,21 @@ const censusRouter = require("./routes/census");
 const postgresRouter = require("./routes/fam_search")
 const censusMongoRouter = require("./routes/mongo_census");
 
+const logEvents = require("./logEvents");
+const EventEmitter = require("events");
+class ThisEmitter extends EventEmitter {}
+const thisEmitter = new ThisEmitter();
+
+//  add a listener for the log event
+thisEmitter.on("log", (msg) => logEvents(msg));
+
+//   // Emitting  the event
+thisEmitter.emit("log", " -- A Log Event has been Emitted!");
+
+
+
+
+
 passport.use(
   new localStrategy(
     { usernameField: "email" },
@@ -64,14 +79,17 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 app.get("/", checkAuthenticated, (req, res) => {
-  res.render("index.ejs", { name: req.user.username });
-});
+  res.render("index.ejs", { name: req.user.username });});
 
 app.use("/census", censusRouter);
-app.use("/fam_search", postgresRouter);
+
 app.use("/id_search", postgresRouter);
 app.use("/prov_search", postgresRouter);
+app.use("/fam_search", postgresRouter);
 app.use("/mongo_census", censusMongoRouter);
+
+
+
 
 app.get("/login", checkNotAuthenticated, (req, res) => {
   res.render("login.ejs");
@@ -125,5 +143,9 @@ function checkNotAuthenticated(req, res, next) {
   }
   return next();
 }
+
+
+
+
 app.use(express.static("public"));
 app.listen(3000);

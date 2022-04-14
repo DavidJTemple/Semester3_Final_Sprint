@@ -7,6 +7,14 @@ const bcrypt = require("bcrypt");
 const app = express();
 const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
 
+
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));

@@ -13,10 +13,10 @@ const getAllCensus = () => {
   });
 };
 
-const getCensusByFamilyName = (id) => {
+const getCensusByFamilyName = (family_name) => {
   return new Promise(function (resolve, reject) {
     const sql = "SELECT * FROM census WHERE family_name = $1";
-    dal.query(sql, [id], (err, result) => {
+    dal.query(sql, [family_name], (err, result) => {
       if (err) {
         reject(err);
       } else {
