@@ -2,20 +2,23 @@
 <body>
     <%- include('./partials/nav.ejs') %>
     <div class="lost content">
-        <h1>Login</h1><br>
+        
 <% if (messages.error) { %>
 <%= messages.error %>
 <% } %>
     <link rel="stylesheet" type="text/css" href="/pg_search.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-
-<form class="example" action="action_page"  method="GET">
+<form class="example" action="/mongo_search/search"  method="GET">
   <input type="text" placeholder="Search.." name="search">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
-<button><a class="example" href="/pg_census">Back to menu</a></button>
+<button><a class="example" href="/">Back to menu</a></button>
 
 <br>
 <br>
 <%- include('./partials/footer.ejs') %>
+
+
+    

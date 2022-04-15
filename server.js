@@ -15,9 +15,11 @@ const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
 
 
 const app = express();
-const censusRouter = require("./routes/census");
+const censusRouter = require("./routes/pg_census");
 const postgresRouter = require("./routes/fam_search")
-const censusMongoRouter = require("./routes/mongo_census");
+const censusMongoRouter = require("./routes/mongo_search");
+const searchRouter = require("./routes/mongo_search");
+
 
 const logEvents = require("./logEvents");
 const EventEmitter = require("events");
@@ -65,7 +67,7 @@ passport.deserializeUser(async (id, done) => {
 });
 
 app.set("view-engine", "ejs");
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(flash());
 app.use(
   session({
@@ -79,14 +81,17 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 app.get("/", checkAuthenticated, (req, res) => {
+  console.log("index check")
   res.render("index.ejs", { name: req.user.username });});
 
-app.use("/census", censusRouter);
+app.use("/mongo_search", censusMongoRouter);
 
-app.use("/id_search", postgresRouter);
-app.use("/prov_search", postgresRouter);
+app.use("/pg_census", censusRouter);
+
+// app.use("/id_search", postgresRouter);
+// app.use("/prov_search", postgresRouter);
 app.use("/fam_search", postgresRouter);
-app.use("/mongo_census", censusMongoRouter);
+app.use("/search", searchRouter);
 
 
 

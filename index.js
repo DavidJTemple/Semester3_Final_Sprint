@@ -6,12 +6,16 @@ const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const app = express();
 const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
+const logEvents = require("./logEvents");
+const EventEmitter = require("events");
+// initialize an object
+const thisEmitter = new ThisEmitter();
 
+//  add a listener for the log event
+thisEmitter.on("log", (msg) => logEvents(msg));
 
-
-
-
-
+//   // Emitting  the event
+thisEmitter.emit("log", " -- A Log Event has been Emitted!");
 
 
 

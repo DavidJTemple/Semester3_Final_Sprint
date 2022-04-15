@@ -26,6 +26,8 @@ const getCensusByFamilyName = (family_name) => {
   });
 };
 
+
+
 module.exports = {
   getAllCensus,
   getCensusByFamilyName,

@@ -1,0 +1,26 @@
+<%- include('./partials/header.ejs') %>
+
+
+<html lang="en">
+    <body>
+        <h1>SEARCH</h1>
+        <div class="search content">
+            <h2>All results</h2>
+            <% if (results.length > 0) { %>
+                <% results.forEach(census => { %>
+                    <p class="family">FAMILY:
+                        <a href="<%= census.family_name%>"><b><%= census.family_name%>,</b>
+                            <%=census.parent1_first_name%> <br/>
+                            <span>Household ID:</span> <%=census.household_id%></a>
+                        <% }) %>
+                   
+                    </p>
+                <% } %>
+           
+             
+        </div>
+    </body>
+</html>
+
+
+<%- include('./partials/footer.ejs') %>
