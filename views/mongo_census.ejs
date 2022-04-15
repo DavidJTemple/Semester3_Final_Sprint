@@ -3,7 +3,7 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         <div class="lost content">
-          <h2>All Census</h2>
+          <h2>Mongo Database</h2>
           <div class="dropdown">
             <button class="dropbtn">Find Name</button>
             <div class="dropdown-content">
@@ -11,6 +11,12 @@
                 <a href="id_search.ejs">Household ID</a>
                 <a href="prov_search.ejs">Province</a>
             </div>
+        </div>
+        <br></br>
+        <div> <h2>Please Logout When Finished</h2>
+          <form action="/logout?_method=DELETE" method="POST">
+            <button id="gin" type="submit">Logout</button>
+          </form>
         </div>
     </body>
     <%- include('./partials/footer.ejs') %>

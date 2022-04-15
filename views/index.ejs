@@ -3,13 +3,12 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         <div class="lost content">
-          <h1>Please choose a Database to search</h1>
+          <h1>Please choose a Database to search</h1></br>
+          <button><a id="gin" href="/census">Postgres Database</a></button><br><br>
+          <button><a id="gin" href="/mongo_census">Mongo Database</a></button>
           <form action="/logout?_method=DELETE" method="POST"></br>
             <button id="gin" type="submit">Logout</button>
           </form>
-          
-          <a id="line" href="/census">Use Postgres Database</a>
-          <a id="line" href="/mongo_census">Use Mongo Database</a>
           
         </div>
     </body>
