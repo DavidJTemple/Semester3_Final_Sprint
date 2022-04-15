@@ -1,0 +1,13 @@
+<h1>Hey Guys!</h1>
+<body>
+    <h2>This program is fucking mental</h2>
+      <% if (allCensus) { %> 
+        <% allCensus.forEach(census => { %>
+      <p class="census">
+        <b><%= census.family_name %></b><br/>
+        - <%= census.household_id %>
+        - <%= census.province %>
+      </p> <br/>
+      <% }) %> <% } %>
+    </div> 
+  </body>

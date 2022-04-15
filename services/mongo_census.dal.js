@@ -1,5 +1,5 @@
 const dal = require("./mongodb_db");
-const sort = { length:1 };
+const sort = { length: 1 };
 
 async function getAllCensus() {
   try {

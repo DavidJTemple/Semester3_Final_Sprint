@@ -7,13 +7,9 @@
           <div class="dropdown">
             <button class="dropbtn">Find Name</button>
             <div class="dropdown-content">
-              <% if (allCensus.length > 0) { %> <% allCensus.forEach(census => { %>
-                  <p class="census">
-                    <a href="<%= census.family_name%>"><b><%= census.family_name%>,</b>
-                      <%=census.parent1_first_name%> <br/>
-                      <span>Household ID:</span> <%=census.household_id%></a>
-                  </p>
-                  <% }) %> <% } %>
+                <a href="fam_search_mdb">Family Name</a>
+                <a href="id_search.ejs">Household ID</a>
+                <a href="prov_search.ejs">Province</a>
             </div>
         </div>
     </body>
