@@ -18,15 +18,10 @@ const getAllCensus = () => {
 const getCensusByFamilyName = (family_name) => {
   console.log("Outside promise");
   return new Promise(function (resolve, reject) {
-<<<<<<< HEAD
     app.set("view-engine", "ejs");
     console.log("Inside promise: Family name: " + family_name);
     const sql = "SELECT * FROM census1 WHERE family_name = $1";
     dal.query(sql, [family_name], (err, result) => {
-=======
-    const sql = "SELECT * FROM census WHERE family_name = $1";
-    dal.query(sql, [id], (err, result) => {
->>>>>>> bc5792f0e4be0d99134786c815dadaa434e137f3
       if (err) {
         reject(err);
       } else {
